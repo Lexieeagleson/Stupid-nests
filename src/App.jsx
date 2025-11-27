@@ -10,6 +10,7 @@ import { Social } from './components/Social';
 import Home from './components/Home';
 import FindBooks from './components/FindBooks';
 import { getBookshelf } from './utils/storage';
+import { ConsoleLog } from './components/ConsoleLog';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -49,13 +50,17 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex">
-      {/* Navigation sidebar */}
-      <Navigation 
-        currentPage={currentPage} 
-        onNavigate={handleNavigate}
-        bookshelfCount={bookshelfCount}
-      />
+    <div className="min-h-screen flex flex-col">
+      {/* Console Log Display - temporary debugging component */}
+      <ConsoleLog />
+      
+      <div className="flex flex-1 pt-12">
+        {/* Navigation sidebar */}
+        <Navigation 
+          currentPage={currentPage} 
+          onNavigate={handleNavigate}
+          bookshelfCount={bookshelfCount}
+        />
 
       {/* Main content area */}
       <main className="flex-1 min-h-screen lg:ml-0 pt-16 lg:pt-0">
@@ -70,6 +75,7 @@ function App() {
           </p>
         </footer>
       </main>
+      </div>
     </div>
   );
 }

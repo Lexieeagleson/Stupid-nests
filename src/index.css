@@ -1,0 +1,187 @@
+/* Import Google Fonts - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* Cozy Library Treehouse Theme Custom Styles */
+@theme {
+  /* Cozy color palette */
+  --color-wood-light: #8B7355;
+  --color-wood: #6B4E31;
+  --color-wood-dark: #4A3520;
+  --color-bark: #3D2914;
+  --color-parchment: #F5E6C4;
+  --color-cream: #FDF8E8;
+  --color-sage: #7D8B6F;
+  --color-moss: #5C6B4D;
+  --color-forest: #2D4A33;
+  --color-amber: #D4A373;
+  --color-sunset: #E76F51;
+  --color-warm-gray: #958B7C;
+  
+  /* Fonts */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
+  
+  /* Custom spacing */
+  --spacing-card: 1.5rem;
+}
+
+/* Base styles */
+:root {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--color-bark);
+  background-color: var(--color-cream);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-image: 
+    radial-gradient(ellipse at 50% 0%, rgba(212, 163, 115, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-cream) 0%, var(--color-parchment) 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-wood-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-wood);
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-wood-dark);
+}
+
+/* Button base styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-wood) 0%, var(--color-wood-dark) 100%);
+  color: var(--color-cream);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(74, 53, 32, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(74, 53, 32, 0.3);
+}
+
+.btn-secondary {
+  background: var(--color-parchment);
+  color: var(--color-wood-dark);
+  border: 2px solid var(--color-wood-light);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-wood-light);
+  color: var(--color-cream);
+}
+
+/* Card styles */
+.card-cozy {
+  background: var(--color-cream);
+  border-radius: 1rem;
+  box-shadow: 
+    0 4px 20px rgba(74, 53, 32, 0.1),
+    0 1px 3px rgba(74, 53, 32, 0.08);
+  border: 1px solid rgba(139, 115, 85, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-cozy:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 40px rgba(74, 53, 32, 0.15),
+    0 4px 12px rgba(74, 53, 32, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s ease-out forwards;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Swipe animation */
+@keyframes swipeLeft {
+  to { transform: translateX(-120%) rotate(-15deg); opacity: 0; }
+}
+
+@keyframes swipeRight {
+  to { transform: translateX(120%) rotate(15deg); opacity: 0; }
+}
+
+.swipe-left {
+  animation: swipeLeft 0.4s ease-out forwards;
+}
+
+.swipe-right {
+  animation: swipeRight 0.4s ease-out forwards;
+}

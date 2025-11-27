@@ -91,7 +91,7 @@ export default function Quiz({ onComplete }) {
       setCurrentIndex(0);
       setAnswers({});
       saveQuizQuestions(generatedQuestions);
-    } catch (err) {
+    } catch {
       setError('Failed to generate quiz questions. Please try again.');
     } finally {
       setIsLoading(false);
